@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MatToolbarModule } from '@angular/material';
+import { MatListModule } from '@angular/material/list';
 //import {MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -24,6 +25,7 @@ import { MenuComponent } from './menu/menu.component';
     FormsModule ,
     HttpModule, 
     MatToolbarModule,
+    MatListModule,
     FlexLayoutModule
   ],
   providers: [],
