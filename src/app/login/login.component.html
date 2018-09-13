@@ -1,0 +1,25 @@
+<mat-toolbar mat-dialog-title color="primary">
+  Login
+  <span class="flex-spacer"></span>
+  <button md-button md-dialog-close>&times;</button>
+</mat-toolbar>
+<form novalidate (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <p>
+      <mat-form-field>
+        <input matInput type="text" placeholder="Username" required name="username" [(ngModel)]="user.username">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput type="password" placeholder="Password" required name="password" [(ngModel)]="user.password">
+        </mat-form-field>
+        <mat-checkbox name="remember" [(ngModel)]="user.remeber">
+          Remember me
+        </mat-checkbox>
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button type="submit" mat-button class="background-primary text-floral-white">Login</button>
+  </mat-dialog-actions>
+</form>
