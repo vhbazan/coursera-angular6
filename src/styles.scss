@@ -40,6 +40,10 @@ body {
 .background-accent {
     background-color: $accent-color!important;
   }
+
+  .background-disabled {
+      background-color: $background-pale !important;
+  }
 .text-floral-white {
     color: floralwhite!important;
 }

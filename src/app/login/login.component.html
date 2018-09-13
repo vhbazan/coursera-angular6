@@ -3,14 +3,24 @@
   <span class="flex-spacer"></span>
   <button md-button md-dialog-close>&times;</button>
 </mat-toolbar>
-<form novalidate (ngSubmit)="onSubmit()">
+<form #loginForm="ngForm" novalidate (ngSubmit)="onSubmit()">
   <mat-dialog-content>
     <p>
-      <mat-form-field>
-        <input matInput type="text" placeholder="Username" required name="username" [(ngModel)]="user.username">
+      <mat-form-field >
+        <input matInput type="text" placeholder="Username" required name="username" 
+        [(ngModel)]="user.username" #username="ngModel">
+        <mat-error>
+          <span [hidden]="username.pristine"></span>
+          <span [hidden]="!username.errors?.required">username is required</span>
+        </mat-error>
       </mat-form-field>
       <mat-form-field>
-          <input matInput type="password" placeholder="Password" required name="password" [(ngModel)]="user.password">
+          <input matInput type="password" placeholder="Password" required name="password" 
+          [(ngModel)]="user.password" #password="ngModel">
+          <mat-error>
+            <span [hidden]="password.pristine"></span>
+            <span [hidden]="!password.errors?.required">password is required</span>
+          </mat-error>
         </mat-form-field>
         <mat-checkbox name="remember" [(ngModel)]="user.remeber">
           Remember me
@@ -20,6 +30,7 @@
   <mat-dialog-actions>
     <span class="flex-spacer"></span>
     <button mat-button mat-dialog-close>Cancel</button>
-    <button type="submit" mat-button class="background-primary text-floral-white">Login</button>
+    <button type="submit" [disabled]="loginForm.form.invalid" mat-button class="background-primary
+     text-floral-white" [ngClass]="loginForm.form.invalid?'background-disabled':'background-primary'">Login</button>
   </mat-dialog-actions>
 </form>
